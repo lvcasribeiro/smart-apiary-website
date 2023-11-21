@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título -->
+    <title>Smart Apiary</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="imagens/hexagon.svg" type="image/x-icon">
+
+    <!-- Ícones remix -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="/estilo.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="/index.html" class="nav__logo">
+                <img src="imagens/hexagon.svg" alt="Logo." style="height: 3.5vh;"> Smart Apiary
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="/index.html" class="nav__link active-link">Tempo real</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/historico.html" class="nav__link">Histórico</a>
+                    </li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <!-- Botão para mudança de tema -->
+                <!-- <i class="ri-moon-line change-theme" id="theme-button"></i> -->
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Principal -->
+    <main class="main">
+        <!--==================== HOME ====================-->
+        <section class="home" id="home">
+            <div class="home__container container grid">
+                <div class="home__img" style="margin: 3%; position: relative;">
+                    <img src="imagens/honey.svg" alt="">
+                </div>
+
+                <div class="home__data">
+                    <h1 class="home__title">
+                        Smart Apiary
+                    </h1>
+                    <p class="home__description">
+                        Sistema de monitoramento inteligente e interfaceamento gráfico dos valores captados pelos
+                        sensores no ambiente interno da colmeia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="product__background">
+            <!--==================== STEPS ====================-->
+            <section class="steps section container">
+                <h2 class="section__title-center">
+                    Tempo real
+                </h2>
+
+                <!-- Controllers: -->
+                <div class="steps__container grid">
+                    <div class="steps__card">
+                        <div class="steps__card-number"><i class="ri-temp-cold-line"></i>
+                        </div>
+                        <h3 class="steps__card-title"><label id="temperatura-realtime"></label> °C</h3>
+                        <p class="steps__card-description">
+                            Temperatura
+                        </p>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number"><i class="ri-windy-line"></i>
+                        </div>
+                        <h3 class="steps__card-title"><label id="umidade-do-ar-realtime"></label> %</h3>
+                        <p class="steps__card-description">
+                            Umidade do ar
+                        </p>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number"><i class="ri-thermometer-line"></i></i>
+                        </div>
+                        <h3 class="steps__card-title"><label id="sensacao-termica-realtime"></label> °C</h3>
+                        <p class="steps__card-description">
+                            Sensação térmica
+                        </p>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number"><i class="ri-sun-line"></i>
+                        </div>
+                        <h3 class="steps__card-title"><label id="luminosidade-realtime"></label> %</h3>
+                        <p class="steps__card-description">
+                            Luminosidade
+                        </p>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number"><i class="ri-volume-up-line"></i>
+                        </div>
+                        <h3 class="steps__card-title"><label id="som-realtime"></label> dB</h3>
+                        <p class="steps__card-description">
+                            Intensidade do som
+                        </p>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number"><i class="ri-dashboard-3-line"></i>
+                        </div>
+                        <h3 class="steps__card-title"><label id="peso-realtime"></label> kg</h3>
+                        <p class="steps__card-description">
+                            Carga ou peso
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer section">
+        <div class="footer__container">
+            <a href="#" class="footer__logo">
+                <img src="imagens/hexagon.svg" alt="Logo." style="height: 3.5vh;"> Smart Apiary
+            </a>
+        </div>
+
+        <p class="footer__copy">&#169; Smart Apiary Solutions. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/codigos/menu.js"></script>
+    <script src="/codigos/conexao.js"></script>
+
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <!-- Ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
